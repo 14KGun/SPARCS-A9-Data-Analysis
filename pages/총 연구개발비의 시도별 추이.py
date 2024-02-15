@@ -3,11 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from fontproperties import fontprop
 
+plt.rc('font', family='AppleGothic')
 df = pd.read_csv('pages/rnd_money.csv')
 
 st.title("총 연구개발비의 시도별 추이")
+st.markdown("출처 : 부산 과학기술정보 서비스")
 
-selected_regions = st.multiselect('지역 선택', options=df['region'])
+selected_regions = st.multiselect('지역 선택', options=df['region'], default=["대전", "대구", "광주"])
 
 data = {}
 for region in selected_regions:
